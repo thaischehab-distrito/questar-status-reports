@@ -306,6 +306,26 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
       <span class="month-dot dot-amarelo"></span>
       <span class="month-name">Dez 2025</span>
     </div>
+    <div class="month-item" onclick="showMonth('nov25')">
+      <span class="month-dot dot-amarelo"></span>
+      <span class="month-name">Nov 2025</span>
+    </div>
+    <div class="month-item" onclick="showMonth('out25')">
+      <span class="month-dot dot-amarelo"></span>
+      <span class="month-name">Out 2025</span>
+    </div>
+    <div class="month-item" onclick="showMonth('set25')">
+      <span class="month-dot dot-verde"></span>
+      <span class="month-name">Set 2025</span>
+    </div>
+    <div class="month-item" onclick="showMonth('ago25')">
+      <span class="month-dot dot-verde"></span>
+      <span class="month-name">Ago 2025</span>
+    </div>
+    <div class="month-item" onclick="showMonth('jul25')">
+      <span class="month-dot dot-verde"></span>
+      <span class="month-name">Jul 2025</span>
+    </div>
   </div>
 
   <div class="sidebar-footer">
@@ -1181,6 +1201,517 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
   </div>
 </div>
 
+
+<!-- ════════════════════════════════════════════════
+     NOVEMBRO 2025
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-nov25">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Novembro 2025</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · Sprints 2 e 3 / Planejamento de App</div>
+    </div>
+    <div class="rpt-header-right"><button class="btn-export" onclick="window.print()">Exportar PDF</button></div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: Novembro 2025 — Sprints 2, 3 e Planejamento de App</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge amarelo"><div class="farol-dot"></div><span>Amarelo</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Sprints</div><div class="meta-val">Sprint 2 (31/out) · Sprint 3 (14/nov)</div></div>
+      <div class="meta-item"><div class="meta-label">Marco</div><div class="meta-val">Planejamento de App (14/nov)</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card"><h4>Resumo executivo</h4><p>Sprint 2 encerrada em 31/out e Sprint 3 em 14/nov. Levantamento de Requisitos concluído em 03/nov. Planejamento de App realizado em 14/nov — mês de definição da arquitetura e roadmap do produto. Primeiros riscos de escopo identificados.</p></div>
+        <div class="saude-card"><h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item warn"><div class="score-num">2</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">1</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Sprints 2 e 3</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Início: Jul/2025 · Fase: Desenvolvimento</div>
+          </div>
+          <div class="farol-pill amarelo">Amarelo</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Levantamento de Requisitos concluído</div><div class="entrega-date">03/nov/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Sprint 2 encerrada</div><div class="entrega-date">31/out/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Sprint 3 encerrada + Planejamento de App</div><div class="entrega-date">14/nov/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Estrutura de dados definida: 6 tabelas CSV diárias → S3 → Redshift</div><div class="entrega-date">nov/2025</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Validação de documentos no DW para insumos de IA generativa</li>
+              <li class="pendencia">Definição das "perguntas principais" para motoristas e gestores</li>
+              <li class="risco">Escopo expandindo com novos pedidos — priorização necessária (matriz impacto x esforço)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Decisão</div>
+          <h5>Arquitetura do produto definida</h5>
+          <p>Planejamento de App realizado em 14/nov: stack AWS definida (S3, Glue, Redshift, Bedrock), perfis de usuário mapeados (motorista, gestor, gerenciador), fluxo de dados estabelecido.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⚠️</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Risco</div>
+          <h5>Expansão de escopo</h5>
+          <p>Novos pedidos sendo adicionados ao escopo. Necessidade de priorização via matriz de impacto x esforço para manter o foco no piloto dentro do prazo.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card"><div class="passo-num">01</div><div class="passo-content"><h5>Sprint 4 — Desenvolvimento core</h5><p>Iniciar desenvolvimento das funcionalidades core do agente conversacional com integração ao Redshift.</p><div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+        <div class="passo-card"><div class="passo-num">02</div><div class="passo-content"><h5>Priorizar roadmap</h5><p>Aplicar matriz impacto x esforço nos novos pedidos para manter foco no escopo do piloto.</p><div class="passo-meta"><span class="passo-tag resp">Vinícius Hessel</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer"><div class="logo">DIST<span>R</span>ITO</div><div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Novembro 2025 · Confidencial</div></div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     OUTUBRO 2025
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-out25">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Outubro 2025</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · Sprints 1 e 2 / Primeiros desenvolvimentos</div>
+    </div>
+    <div class="rpt-header-right"><button class="btn-export" onclick="window.print()">Exportar PDF</button></div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: Outubro 2025 — Sprints 1 e 2</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge amarelo"><div class="farol-dot"></div><span>Amarelo</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Sprints</div><div class="meta-val">Sprint 1 (17/out) · Sprint 2 (31/out)</div></div>
+      <div class="meta-item"><div class="meta-label">Fase</div><div class="meta-val">Desenvolvimento inicial</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card"><h4>Resumo executivo</h4><p>Início do desenvolvimento com Sprint 1 (17/out) e Sprint 2 (31/out). Setup inicial do ambiente AWS concluído em setembro. Pipeline S3 → Redshift configurado. Primeiros desafios com replicação de dados entre Israel e Brasil identificados.</p></div>
+        <div class="saude-card"><h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item warn"><div class="score-num">2</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">1</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Sprints 1 e 2</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Início: Jul/2025 · Fase: Desenvolvimento inicial</div>
+          </div>
+          <div class="farol-pill amarelo">Amarelo</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Sprint 1 encerrada — primeiras entregas de desenvolvimento</div><div class="entrega-date">17/out/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Sprint 2 encerrada — pipeline de dados inicial</div><div class="entrega-date">31/out/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Ingestão de dados S3 → Redshift configurada (6 tabelas CSV diárias)</div><div class="entrega-date">out/2025</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Esteira de replicação S3 Israel → Brasil: chaves de criptografia a configurar</li>
+              <li class="risco">Possibilidade de gastos AWS ultrapassarem estimativa inicial (US$500/mês)</li>
+              <li class="pendencia">Levantamento de Requisitos (entrega prevista: 03/nov)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Decisão</div>
+          <h5>Stack AWS definida para o piloto</h5>
+          <p>Definida a arquitetura de dados: S3 (Data Lake) → AWS Glue (ETL) → Redshift (DW) → Bedrock (LLM). Modelos Claude Opus 4.6 e Haiku 3.5 selecionados para o agente conversacional.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⚠️</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Risco</div>
+          <h5>Replicação Israel → Brasil</h5>
+          <p>Esteira de replicação dos buckets S3 entre Israel e Brasil com desafios na configuração das chaves de criptografia. Monitoramento necessário para garantir integridade dos dados.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card"><div class="passo-num">01</div><div class="passo-content"><h5>Concluir Levantamento de Requisitos</h5><p>Finalizar mapeamento de requisitos do app para motoristas, gestores e gerenciadores até 03/nov.</p><div class="passo-meta"><span class="passo-tag resp">Vinícius Hessel</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+        <div class="passo-card"><div class="passo-num">02</div><div class="passo-content"><h5>Sprint 3 + Planejamento de App</h5><p>Iniciar Sprint 3 e realizar Planejamento de App (14/nov) para definir roadmap detalhado.</p><div class="passo-meta"><span class="passo-tag resp">Squad completo</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer"><div class="logo">DIST<span>R</span>ITO</div><div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Outubro 2025 · Confidencial</div></div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SETEMBRO 2025
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-set25">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Setembro 2025</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · Setup Inicial do ambiente AWS</div>
+    </div>
+    <div class="rpt-header-right"><button class="btn-export" onclick="window.print()">Exportar PDF</button></div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 16/09/2025 — Setup Inicial</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge verde"><div class="farol-dot"></div><span>Verde</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Marco</div><div class="meta-val">Setup Inicial (16/set)</div></div>
+      <div class="meta-item"><div class="meta-label">Fase</div><div class="meta-val">Infraestrutura / Onboarding</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card"><h4>Resumo executivo</h4><p>Setup Inicial do ambiente AWS concluído em 16/set. Infraestrutura de dados configurada: S3, Glue e Redshift provisionados. Conta AWS da Questar Brasil configurada com replicação dos dados de Israel. Projeto dentro do prazo e sem bloqueios.</p></div>
+        <div class="saude-card"><h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">0</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Setup Inicial</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Setup AWS · Início: Jul/2025</div>
+          </div>
+          <div class="farol-pill verde">Verde</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Setup Inicial concluído — infra AWS provisionada</div><div class="entrega-date">16/set/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">S3 (Data Lake), Glue (ETL) e Redshift configurados</div><div class="entrega-date">set/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Cognito (Auth) e CloudFront configurados</div><div class="entrega-date">set/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Replicação dos dados de Israel para Brasil iniciada</div><div class="entrega-date">set/2025</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Configuração completa das chaves de criptografia na esteira S3 Israel → Brasil</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Marco</div>
+          <h5>Ambiente AWS provisionado com sucesso</h5>
+          <p>Toda a infraestrutura base do projeto configurada: S3, Glue, Redshift, EC2 (FastAPI), RDS, Cognito e CloudFront. Conta AWS Brasil separada da conta Israel com replicação configurada.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card"><div class="passo-num">01</div><div class="passo-content"><h5>Iniciar Sprint 1 (17/out)</h5><p>Primeira sprint de desenvolvimento com foco nas funcionalidades base do agente conversacional.</p><div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+        <div class="passo-card"><div class="passo-num">02</div><div class="passo-content"><h5>Finalizar esteira de replicação</h5><p>Concluir configuração das chaves de criptografia S3 Israel → Brasil e validar integridade dos dados.</p><div class="passo-meta"><span class="passo-tag resp">Patricia Miranda</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer"><div class="logo">DIST<span>R</span>ITO</div><div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Setembro 2025 · Confidencial</div></div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     AGOSTO 2025
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-ago25">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Agosto 2025</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · Workshop de Discovery</div>
+    </div>
+    <div class="rpt-header-right"><button class="btn-export" onclick="window.print()">Exportar PDF</button></div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 15/08/2025 — Workshop de Discovery</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge verde"><div class="farol-dot"></div><span>Verde</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Marco</div><div class="meta-val">Workshop (15/ago)</div></div>
+      <div class="meta-item"><div class="meta-label">Fase</div><div class="meta-val">Discovery / Onboarding</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card"><h4>Resumo executivo</h4><p>Workshop de Discovery realizado em 15/ago com o time da Questar. Mapeamento das necessidades de negócio, definição dos perfis de usuário (motorista, gestor de frotas, admin) e levantamento inicial dos casos de uso do agente conversacional. Projeto verde e dentro do cronograma.</p></div>
+        <div class="saude-card"><h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">0</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Workshop</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Discovery · Início: Jul/2025</div>
+          </div>
+          <div class="farol-pill verde">Verde</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Workshop de Discovery realizado com time Questar</div><div class="entrega-date">15/ago/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Perfis de usuário mapeados: motorista, gestor de frotas, admin</div><div class="entrega-date">ago/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Casos de uso do agente conversacional levantados</div><div class="entrega-date">ago/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Dados disponíveis mapeados: telemetria, eventos, ranking de motoristas</div><div class="entrega-date">ago/2025</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Setup Inicial do ambiente AWS (previsto: 16/set)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Decisão</div>
+          <h5>Escopo do piloto definido no Workshop</h5>
+          <p>Definidas as 12 perguntas fundamentais do agente: 3 para motoristas (desempenho, diagnóstico, saúde do veículo) e 5 para gestores (segurança, eficiência operacional, ranking, diagnóstico, recomendações). Objetivo: resposta com acurácia de 100% sobre dados do Redshift.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card"><div class="passo-num">01</div><div class="passo-content"><h5>Setup Inicial AWS (16/set)</h5><p>Provisionar toda a infraestrutura cloud: S3, Glue, Redshift, EC2, RDS, Cognito e CloudFront.</p><div class="passo-meta"><span class="passo-tag resp">Patricia Miranda + Eduardo</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+        <div class="passo-card"><div class="passo-num">02</div><div class="passo-content"><h5>Iniciar Sprint 1 (17/out)</h5><p>Primeiros desenvolvimentos do agente conversacional após infraestrutura pronta.</p><div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer"><div class="logo">DIST<span>R</span>ITO</div><div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Agosto 2025 · Confidencial</div></div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     JULHO 2025
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-jul25">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Julho 2025</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · Kick-off do projeto</div>
+    </div>
+    <div class="rpt-header-right"><button class="btn-export" onclick="window.print()">Exportar PDF</button></div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 24/07/2025 — Kick-off oficial do projeto</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge verde"><div class="farol-dot"></div><span>Verde</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">24/07/2025</div></div>
+      <div class="meta-item"><div class="meta-label">Tipo</div><div class="meta-val">Piloto</div></div>
+      <div class="meta-item"><div class="meta-label">Fase</div><div class="meta-val">Kick-off / Onboarding</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card"><h4>Resumo executivo</h4><p>Kick-off oficial do projeto TelemetrIA realizado em 24/07/2025. Início do piloto de PoC de webapp de agente conversacional para o time da Questar, com foco em telemetria de frota. Squad formada e alinhamentos iniciais realizados. Projeto iniciado no verde.</p></div>
+        <div class="saude-card"><h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">0</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Kick-off</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Kick-off · 24/07/2025</div>
+          </div>
+          <div class="farol-pill verde">Verde</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Kick-off oficial realizado com time Distrito + Questar</div><div class="entrega-date">24/jul/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Squad formada: PO, Head Delivery, Engenharia de Dados, Back-end/IA, Suporte</div><div class="entrega-date">jul/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Objetivo do piloto definido: agente conversacional para telemetria de frota</div><div class="entrega-date">jul/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Cronograma de sprints e marcos alinhado</div><div class="entrega-date">jul/2025</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Workshop de Discovery (previsto: 15/ago)</li>
+              <li class="pendencia">Acesso à conta AWS Questar Brasil para iniciar o Setup</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Marco</div>
+          <h5>Projeto TelemetrIA oficialmente iniciado</h5>
+          <p>Squad Distrito formada para desenvolver a PoC de webapp de agente conversacional para a Questar. Produto visa permitir que motoristas e gestores de frota consultem telemetria via linguagem natural, com dados processados no Redshift e LLMs via AWS Bedrock.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card"><div class="passo-num">01</div><div class="passo-content"><h5>Workshop de Discovery (15/ago)</h5><p>Mapear necessidades de negócio, perfis de usuário e casos de uso com o time da Questar.</p><div class="passo-meta"><span class="passo-tag resp">Vinícius Hessel + Pedrão</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+        <div class="passo-card"><div class="passo-num">02</div><div class="passo-content"><h5>Setup Inicial AWS (16/set)</h5><p>Provisionar infraestrutura cloud base para o desenvolvimento das sprints.</p><div class="passo-meta"><span class="passo-tag resp">Patricia Miranda</span><span class="passo-tag projeto">TelemetrIA</span></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer"><div class="logo">DIST<span>R</span>ITO</div><div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Julho 2025 · Confidencial</div></div>
+</div>
+
 </main>
 </div>
 
@@ -1195,7 +1726,7 @@ function showMonth(id) {
     document.getElementById('mainArea').scrollTop = 0;
   }
 
-  const map = { mai26: 0, abr26: 2, mar26: 3, fev26: 4, jan26: 5, dez25: 6 };
+  const map = { mai26: 0, abr26: 1, mar26: 2, fev26: 3, jan26: 4, dez25: 5, nov25: 6, out25: 7, set25: 8, ago25: 9, jul25: 10 };
   const items = document.querySelectorAll('.month-item');
   if (map[id] !== undefined && items[map[id]]) {
     items[map[id]].classList.add('active');
