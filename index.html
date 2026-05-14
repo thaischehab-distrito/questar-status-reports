@@ -252,7 +252,36 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
 .rpt-footer .logo span { color: var(--brand); }
 .rpt-footer-right  { font-size: 10px; color: rgba(255,255,255,0.3); text-align: right; line-height: 1.7; }
 
+/* HISTÓRICO */
+.hist-header-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+.hist-header-bar h2 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+.hist-header-bar p { font-size: 12px; color: var(--fg3); margin-top: 3px; }
+.hist-body { flex: 1; padding: 32px 40px 80px; background: var(--bg); overflow-y: auto; }
+.hist-insight { background: #e8f0fe; border: 1px solid #c5d5fb; border-radius: 11px; padding: 13px 18px; display: flex; gap: 10px; align-items: flex-start; margin-bottom: 28px; }
+.hist-insight p { font-size: 12px; color: #1a3a8f; line-height: 1.6; }
+.hist-insight svg { flex-shrink: 0; margin-top: 1px; }
+.hist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.hist-card { background: var(--white); border-radius: 14px; box-shadow: var(--shadow); padding: 18px 20px; border: 2px solid transparent; transition: box-shadow 200ms; cursor: pointer; }
+.hist-card:hover { box-shadow: var(--shadow-h); }
+.hist-card.atual { border-color: var(--brand); }
+.hist-card-month { font-size: 14px; font-weight: 700; margin-bottom: 2px; display: flex; align-items: center; justify-content: space-between; }
+.hist-card-atual { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand); }
+.hist-card-farol { font-size: 10px; color: var(--fg3); margin-bottom: 14px; display: flex; align-items: center; gap: 5px; }
+.hist-card-farol-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.hist-row { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--bg); font-size: 11px; }
+.hist-row:last-child { border-bottom: none; }
+.hist-row-label { color: var(--fg2); }
+.hist-row-val { font-weight: 700; display: flex; align-items: center; gap: 4px; }
+.hist-trend-up   { color: #c62828; font-size: 10px; }
+.hist-trend-down { color: #2e7d32; font-size: 10px; }
+.hist-trend-same { color: var(--fg3);  font-size: 10px; }
+.hist-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
+.hist-compare-card { background: var(--white); border-radius: 14px; box-shadow: var(--shadow); padding: 18px 22px; }
+.hist-compare-card.atual { border: 2px solid var(--brand); }
+.hist-compare-title { font-size: 13px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; }
+
 /* PRINT */
+@media print {/* PRINT */
 @media print {
   .sidebar { display: none; }
   .main { margin-left: 0; }
@@ -329,8 +358,8 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
   </div>
 
   <div class="sidebar-footer">
-    <button class="btn-generate" onclick="alert('Conecte o Google Drive para gerar o relatório do próximo mês automaticamente.')">
-      ✦ Gerar Junho 2026
+    <button class="btn-generate" onclick="showMonth('hist')">
+      ↗ Ver histórico
     </button>
   </div>
 </aside>
@@ -1712,6 +1741,39 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
   <div class="rpt-footer"><div class="logo">DIST<span>R</span>ITO</div><div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Julho 2025 · Confidencial</div></div>
 </div>
 
+
+<!-- ════════════════════════════════════════════════
+     HISTÓRICO DE RELATÓRIOS
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-hist">
+  <div class="hist-header-bar">
+    <div>
+      <h2>Histórico de relatórios</h2>
+      <p>Questar · AI Factory · TelemetrIA · Julho 2025 – Maio 2026 · 11 relatórios</p>
+    </div>
+  </div>
+
+  <div class="hist-body">
+
+    <!-- Comparativo meses recentes -->
+    <div class="hist-insight">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a3a8f" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p id="hist-insight-text">Comparativo <strong>Abril vs Maio 2026</strong>: bloqueios mantiveram-se em 1, pendências aumentaram de 2 para 3 — foco no encerramento formal do piloto. O projeto completou 11 meses com DoD técnico atingido em março/2026.</p>
+    </div>
+
+    <!-- Comparativo últimos 2 meses -->
+    <div class="hist-compare" id="hist-compare">
+      <!-- gerado por JS -->
+    </div>
+
+    <!-- Todos os meses -->
+    <div style="margin-bottom:16px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--fg3);">Todos os relatórios</div>
+    <div class="hist-grid" id="hist-all-cards">
+      <!-- gerado por JS -->
+    </div>
+  </div>
+</div>
+
 </main>
 </div>
 
@@ -1727,11 +1789,80 @@ function showMonth(id) {
   }
 
   const map = { mai26: 0, abr26: 1, mar26: 2, fev26: 3, jan26: 4, dez25: 5, nov25: 6, out25: 7, set25: 8, ago25: 9, jul25: 10 };
+
+const MONTHS_DATA = [
+  { id:'jul25',  label:'Jul 2025', farol:'verde',   bloqueios:0, pendencias:0, verdes:1, amarelos:0 },
+  { id:'ago25',  label:'Ago 2025', farol:'verde',   bloqueios:0, pendencias:0, verdes:1, amarelos:0 },
+  { id:'set25',  label:'Set 2025', farol:'verde',   bloqueios:0, pendencias:1, verdes:1, amarelos:0 },
+  { id:'out25',  label:'Out 2025', farol:'amarelo', bloqueios:0, pendencias:2, verdes:1, amarelos:1 },
+  { id:'nov25',  label:'Nov 2025', farol:'amarelo', bloqueios:0, pendencias:2, verdes:1, amarelos:1 },
+  { id:'dez25',  label:'Dez 2025', farol:'amarelo', bloqueios:0, pendencias:3, verdes:1, amarelos:1 },
+  { id:'jan26',  label:'Jan 2026', farol:'amarelo', bloqueios:0, pendencias:3, verdes:1, amarelos:1 },
+  { id:'fev26',  label:'Fev 2026', farol:'amarelo', bloqueios:0, pendencias:2, verdes:1, amarelos:1 },
+  { id:'mar26',  label:'Mar 2026', farol:'verde',   bloqueios:0, pendencias:1, verdes:1, amarelos:0 },
+  { id:'abr26',  label:'Abr 2026', farol:'amarelo', bloqueios:1, pendencias:2, verdes:1, amarelos:1 },
+  { id:'mai26',  label:'Mai 2026', farol:'amarelo', bloqueios:1, pendencias:3, verdes:0, amarelos:1, atual:true },
+];
+
+function trend(curr, prev) {
+  if (curr > prev) return '<span class="hist-trend-up">↑</span>';
+  if (curr < prev) return '<span class="hist-trend-down">↓</span>';
+  return '<span class="hist-trend-same">→</span>';
+}
+
+function farolDotColor(f) {
+  return f === 'verde' ? '#4caf50' : f === 'amarelo' ? '#ffc107' : '#f44336';
+}
+
+function buildHist() {
+  // Compare last 2 months
+  const prev = MONTHS_DATA[MONTHS_DATA.length - 2];
+  const curr = MONTHS_DATA[MONTHS_DATA.length - 1];
+  const compare = document.getElementById('hist-compare');
+  if (compare) {
+    compare.innerHTML = `
+      <div class="hist-compare-card">
+        <div class="hist-compare-title">${prev.label}</div>
+        <div class="hist-row"><span class="hist-row-label">Bloqueios</span><span class="hist-row-val">${prev.bloqueios}</span></div>
+        <div class="hist-row"><span class="hist-row-label">Pendências ativas</span><span class="hist-row-val">${prev.pendencias}</span></div>
+        <div class="hist-row"><span class="hist-row-label">Faróis verdes</span><span class="hist-row-val">${prev.verdes}</span></div>
+        <div class="hist-row"><span class="hist-row-label">Faróis amarelos</span><span class="hist-row-val">${prev.amarelos}</span></div>
+      </div>
+      <div class="hist-compare-card atual">
+        <div class="hist-compare-title">${curr.label} <span class="hist-card-atual">ATUAL</span></div>
+        <div class="hist-row"><span class="hist-row-label">Bloqueios</span><span class="hist-row-val">${curr.bloqueios} ${trend(curr.bloqueios, prev.bloqueios)}</span></div>
+        <div class="hist-row"><span class="hist-row-label">Pendências ativas</span><span class="hist-row-val">${curr.pendencias} ${trend(curr.pendencias, prev.pendencias)}</span></div>
+        <div class="hist-row"><span class="hist-row-label">Faróis verdes</span><span class="hist-row-val">${curr.verdes} ${trend(curr.verdes, prev.verdes)}</span></div>
+        <div class="hist-row"><span class="hist-row-label">Faróis amarelos</span><span class="hist-row-val">${curr.amarelos} ${trend(curr.amarelos, prev.amarelos)}</span></div>
+      </div>`;
+  }
+  // All months cards (reverse = newest first)
+  const grid = document.getElementById('hist-all-cards');
+  if (grid) {
+    grid.innerHTML = [...MONTHS_DATA].reverse().map(m => `
+      <div class="hist-card${m.atual ? ' atual' : ''}" onclick="showMonth('${m.id}')">
+        <div class="hist-card-month">${m.label}${m.atual ? '<span class="hist-card-atual">ATUAL</span>' : ''}</div>
+        <div class="hist-card-farol">
+          <span class="hist-card-farol-dot" style="background:${farolDotColor(m.farol)}"></span>
+          ${m.farol.charAt(0).toUpperCase() + m.farol.slice(1)}
+        </div>
+        <div class="hist-row"><span class="hist-row-label">Bloqueios</span><span class="hist-row-val" style="color:${m.bloqueios>0?'var(--red)':'var(--green)'}">${m.bloqueios}</span></div>
+        <div class="hist-row"><span class="hist-row-label">Pendências</span><span class="hist-row-val" style="color:${m.pendencias>1?'#e65100':'var(--fg1)'}">${m.pendencias}</span></div>
+        <div class="hist-row"><span class="hist-row-label">Faróis verdes</span><span class="hist-row-val">${m.verdes}</span></div>
+        <div class="hist-row"><span class="hist-row-label">Faróis amarelos</span><span class="hist-row-val">${m.amarelos}</span></div>
+      </div>`).join('');
+  }
+}
   const items = document.querySelectorAll('.month-item');
   if (map[id] !== undefined && items[map[id]]) {
     items[map[id]].classList.add('active');
   }
+  if (id === 'hist') buildHist();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  // pre-build hist on load
+});
 </script>
 </body>
 </html>
