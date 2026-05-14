@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status Reports — Questar — Distrito</title>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --brand: #d0095f; --brand-dark: #a80750; --brand-light: #f4eff1;
+  --bg: #f2f2f0; --white: #fff; --dark: #1a1a1a;
+  --fg1: #1a1a1a; --fg2: #595959; --fg3: #8a8a8a;
+  --border: #e5e5e5;
+  --green: #2e7d32; --green-bg: #e8f5e9;
+  --yellow: #7d5a00; --yellow-bg: #fff8e1;
+  --red: #c62828; --red-bg: #ffebee;
+  --blue: #1565c0; --blue-bg: #e3f2fd;
+  --sidebar-w: 220px;
+  --shadow: 0 2px 20px rgba(0,0,0,0.04);
+  --shadow-h: 0 4px 32px rgba(0,0,0,0.08);
+}
+html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif; background: var(--bg); color: var(--fg1); -webkit-font-smoothing: antialiased; }
+
+/* ── APP SHELL ── */
+.app { display: flex; height: 100vh; overflow: hidden; }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: var(--dark);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  left: 0; top: 0;
+  z-index: 100;
+  overflow: hidden;
+}
+.sidebar-brand {
+  padding: 20px 18px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+.sidebar-logo { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+.sidebar-logo span { color: var(--brand); }
+.sidebar-client { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.sidebar-section { padding: 14px 18px 6px; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+
+.month-list { flex: 1; overflow-y: auto; padding: 4px 10px 16px; }
+.month-list::-webkit-scrollbar { width: 3px; }
+.month-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+.month-item {
+  display: flex; align-items: center; gap: 9px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+  transition: all 150ms;
+  margin-bottom: 1px;
+  border: 1px solid transparent;
+  user-select: none;
+}
+.month-item:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); }
+.month-item.active {
+  background: rgba(208,9,95,0.15);
+  border-color: rgba(208,9,95,0.3);
+  color: #fff;
+  font-weight: 500;
+}
+.month-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.dot-verde    { background: #4caf50; box-shadow: 0 0 6px rgba(76,175,80,0.5); }
+.dot-amarelo  { background: #ffc107; box-shadow: 0 0 6px rgba(255,193,7,0.5); }
+.dot-vermelho { background: #f44336; box-shadow: 0 0 6px rgba(244,67,54,0.5); }
+.dot-onboard  { background: rgba(255,255,255,0.2); }
+.month-name { flex: 1; }
+.month-new-badge {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.06em;
+  background: var(--brand); color: #fff;
+  padding: 2px 6px; border-radius: 4px;
+}
+
+.sidebar-footer {
+  padding: 14px 18px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+.btn-generate {
+  width: 100%;
+  padding: 9px 14px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: background 150ms;
+}
+.btn-generate:hover { background: var(--brand-dark); }
+
+/* ── MAIN CONTENT ── */
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── REPORT VIEWS ── */
+.report-view { display: none; flex-direction: column; min-height: 100%; }
+.report-view.active { display: flex; }
+
+/* ── PLACEHOLDER ── */
+.placeholder-view {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 100%; gap: 12px; color: var(--fg3);
+}
+.placeholder-view svg { opacity: 0.3; }
+.placeholder-view p { font-size: 14px; }
+
+/* ── HEADER ── */
+.rpt-header { background: var(--dark); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+.rpt-header-left {}
+.rpt-header-title { font-size: 13px; font-weight: 700; color: #fff; }
+.rpt-header-sub   { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+.rpt-header-right { display: flex; align-items: center; gap: 10px; }
+.btn-export {
+  padding: 6px 14px; border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 7px; background: transparent; color: rgba(255,255,255,0.7);
+  font-family: inherit; font-size: 11px; font-weight: 500; cursor: pointer; transition: all 150ms;
+}
+.btn-export:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); color: #fff; }
+.btn-export.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.btn-export.primary:hover { background: var(--brand-dark); }
+
+/* ── HERO ── */
+.rpt-hero { background: var(--dark); padding: 36px 40px 44px; border-bottom: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; }
+.rpt-hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.hero-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand); background: rgba(208,9,95,0.12); border: 1px solid rgba(208,9,95,0.25); padding: 3px 10px; border-radius: 6px; margin-bottom: 14px; }
+.rpt-hero h1 { font-size: 30px; font-weight: 700; color: #fff; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 8px; }
+.rpt-hero-sub { font-size: 13px; color: rgba(255,255,255,0.45); }
+.farol-geral { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
+.farol-geral-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); }
+.farol-badge { display: flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 8px; }
+.farol-badge.amarelo { background: rgba(255,193,7,0.12); border: 1px solid rgba(255,193,7,0.3); }
+.farol-badge.verde   { background: rgba(76,175,80,0.12);  border: 1px solid rgba(76,175,80,0.3); }
+.farol-badge.vermelho{ background: rgba(244,67,54,0.12);  border: 1px solid rgba(244,67,54,0.3); }
+.farol-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.farol-badge.amarelo .farol-dot  { background: #ffc107; box-shadow: 0 0 8px rgba(255,193,7,0.6); }
+.farol-badge.verde .farol-dot    { background: #4caf50; box-shadow: 0 0 8px rgba(76,175,80,0.6); }
+.farol-badge.vermelho .farol-dot { background: #f44336; box-shadow: 0 0 8px rgba(244,67,54,0.6); }
+.farol-badge.amarelo span  { color: #ffc107; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.farol-badge.verde span    { color: #4caf50; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.farol-badge.vermelho span { color: #f44336; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+
+.rpt-hero-meta { display: flex; gap: 0; margin-top: 28px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); }
+.meta-item { flex: 1; padding-right: 12px; }
+.meta-item .meta-label { font-size: 9px; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
+.meta-item .meta-val   { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.85); }
+
+/* ── BODY ── */
+.rpt-body { flex: 1; padding: 44px 40px 80px; background: var(--bg); }
+.section { margin-bottom: 48px; }
+.section-title { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.section-num { width: 22px; height: 22px; border-radius: 50%; background: var(--brand); color: #fff; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-title h2 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 44px 0; }
+
+/* STATUS GERAL */
+.saude-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.saude-card { background: var(--white); border-radius: 14px; box-shadow: var(--shadow); padding: 18px 22px; }
+.saude-card h4 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg3); margin-bottom: 7px; }
+.saude-card p { font-size: 13px; color: var(--fg2); line-height: 1.65; }
+.score-wrap { display: flex; gap: 10px; margin-top: 6px; }
+.score-item { flex: 1; background: var(--bg); border-radius: 10px; padding: 11px 8px; text-align: center; }
+.score-num { font-size: 21px; font-weight: 700; }
+.score-item .score-label { font-size: 10px; color: var(--fg3); margin-top: 2px; }
+.score-item.warn .score-num { color: #e65100; }
+.score-item.ok   .score-num { color: var(--green); }
+.score-item.info .score-num { color: var(--brand); }
+
+/* PROJETO CARDS */
+.projeto-card { background: var(--white); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 14px; transition: box-shadow 200ms; }
+.projeto-card:hover { box-shadow: var(--shadow-h); }
+.projeto-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px 14px; border-bottom: 1px solid var(--border); }
+.projeto-header-left { display: flex; flex-direction: column; gap: 3px; }
+.projeto-nome { font-size: 15px; font-weight: 700; }
+.projeto-info { font-size: 11px; color: var(--fg3); }
+.farol-pill { display: flex; align-items: center; gap: 5px; padding: 4px 11px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.farol-pill.amarelo { background: var(--yellow-bg); color: var(--yellow); }
+.farol-pill.verde   { background: var(--green-bg); color: var(--green); }
+.farol-pill.vermelho{ background: var(--red-bg);   color: var(--red); }
+.farol-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; }
+.farol-pill.amarelo::before  { background: #f9a825; }
+.farol-pill.verde::before    { background: #4caf50; }
+.farol-pill.vermelho::before { background: #f44336; }
+.projeto-body { padding: 18px 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.proj-col h5 { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg3); margin-bottom: 9px; }
+.entrega-item { display: flex; align-items: flex-start; gap: 7px; padding: 5px 0; border-bottom: 1px solid var(--bg); }
+.entrega-item:last-child { border-bottom: none; }
+.entrega-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); margin-top: 5px; flex-shrink: 0; }
+.entrega-dot.progress { background: #f9a825; }
+.entrega-dot.waiting  { background: #42a5f5; }
+.entrega-text { font-size: 11px; color: var(--fg2); line-height: 1.4; }
+.entrega-date { font-size: 10px; color: var(--fg3); margin-top: 1px; }
+.alerta-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.alerta-list li { font-size: 11px; color: var(--fg2); line-height: 1.5; padding: 7px 9px; border-radius: 7px; }
+.alerta-list li.pendencia { background: #fff8e1; border-left: 3px solid #f9a825; }
+.alerta-list li.risco     { background: #fff3f3; border-left: 3px solid #ef5350; }
+
+/* DECISÕES */
+.decisao-card { background: var(--white); border-radius: 13px; box-shadow: var(--shadow); padding: 16px 18px; margin-bottom: 10px; display: flex; gap: 13px; }
+.decisao-icon { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+.decisao-icon.bloqueio  { background: var(--red-bg); }
+.decisao-icon.pendencia { background: var(--yellow-bg); }
+.decisao-icon.decisao   { background: var(--green-bg); }
+.decisao-content h5 { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+.decisao-content p  { font-size: 11px; color: var(--fg2); line-height: 1.55; }
+.decisao-tag { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 7px; border-radius: 4px; margin-bottom: 5px; }
+.decisao-tag.bloqueio  { background: var(--red-bg);    color: var(--red); }
+.decisao-tag.pendencia { background: var(--yellow-bg); color: var(--yellow); }
+.decisao-tag.decisao   { background: var(--green-bg);  color: var(--green); }
+
+/* PRÓXIMOS PASSOS */
+.passo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.passo-card { background: var(--white); border-radius: 13px; box-shadow: var(--shadow); padding: 14px 16px; display: flex; gap: 11px; }
+.passo-num  { width: 26px; height: 26px; border-radius: 7px; background: var(--brand-light); color: var(--brand); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.passo-content h5 { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
+.passo-content p  { font-size: 11px; color: var(--fg2); line-height: 1.5; }
+.passo-meta { margin-top: 5px; display: flex; gap: 5px; flex-wrap: wrap; }
+.passo-tag  { font-size: 9px; padding: 2px 6px; border-radius: 4px; font-weight: 500; }
+.passo-tag.resp    { background: var(--bg); color: var(--fg2); }
+.passo-tag.projeto { background: var(--brand-light); color: var(--brand); }
+
+/* NOTA REVISÃO */
+.nota-revisao { background: var(--brand-light); border: 1px solid rgba(208,9,95,0.18); border-radius: 11px; padding: 13px 16px; display: flex; gap: 10px; align-items: flex-start; margin-top: 40px; }
+.nota-revisao p { font-size: 11px; color: var(--brand-dark); line-height: 1.55; }
+.nota-revisao strong { font-weight: 700; }
+
+/* FOOTER */
+.rpt-footer { background: var(--dark); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+.rpt-footer .logo  { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+.rpt-footer .logo span { color: var(--brand); }
+.rpt-footer-right  { font-size: 10px; color: rgba(255,255,255,0.3); text-align: right; line-height: 1.7; }
+
+/* PRINT */
+@media print {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .btn-export, .btn-generate { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ═══════════════════════════════════════════
+     SIDEBAR
+═══════════════════════════════════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="sidebar-logo">DIST<span>R</span>ITO</div>
+    <div class="sidebar-client">Questar · AI Factory</div>
+  </div>
+
+  <div class="sidebar-section">Relatórios mensais</div>
+
+  <div class="month-list">
+    <div class="month-item active" onclick="showMonth('mai26')">
+      <span class="month-dot dot-verde"></span>
+      <span class="month-name">Mai 2026</span>
+      <span class="month-new-badge">atual</span>
+    </div>
+  </div>
+
+  <div class="sidebar-footer">
+    <button class="btn-generate" onclick="alert('Conecte o Google Drive para gerar o relatório do próximo mês automaticamente.')">
+      ✦ Gerar Junho 2026
+    </button>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════
+     MAIN
+═══════════════════════════════════════════ -->
+<main class="main" id="mainArea">
+
+  <div class="placeholder-view" id="view-placeholder" style="display:none;">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    <p>Selecione um mês na barra lateral</p>
+  </div>
+
+<!-- ═══════════════════════════════════════════
+     MAIO 2026 — PRIMEIRO RELATÓRIO
+═══════════════════════════════════════════ -->
+<div class="report-view active" id="view-mai26">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Maio 2026</div>
+      <div class="rpt-header-sub">AI Factory · PoC Agente Conversacional · Primeiro relatório</div>
+    </div>
+    <div class="rpt-header-right">
+      <button class="btn-export" onclick="window.print()">Exportar PDF</button>
+    </div>
+  </div>
+
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — PoC Agente Conversacional</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 01/05/2026 – 31/05/2026</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge verde">
+          <div class="farol-dot"></div>
+          <span>Verde</span>
+        </div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">[A DEFINIR]</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">[A DEFINIR]</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Maio 2026</div></div>
+      <div class="meta-item"><div class="meta-label">Sprint atual</div><div class="meta-val">[A CONFIRMAR]</div></div>
+      <div class="meta-item"><div class="meta-label">Produtos ativos</div><div class="meta-val">1 produto (PoC)</div></div>
+    </div>
+  </div>
+
+  <div class="rpt-body">
+    <!-- 01 STATUS GERAL -->
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card">
+          <h4>Resumo executivo</h4>
+          <p>[A CONFIRMAR] — Primeiro report do projeto. Aguardando dados da sprint para preenchimento do resumo executivo.</p>
+        </div>
+        <div class="saude-card">
+          <h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">[—]</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item ok"><div class="score-num">[—]</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">[—]</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">[—]</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 02 ATIVIDADES -->
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Sprint [A CONFIRMAR]</h2></div>
+
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">PoC de webapp de agente conversacional para o time da Questar · Início: Mai/2026</div>
+          </div>
+          <div class="farol-pill verde">Verde</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas</h5>
+            <div class="entrega-item"><div class="entrega-dot waiting"></div><div><div class="entrega-text">[A CONFIRMAR] — Primeiro report, aguardando dados da sprint</div><div class="entrega-date">[A CONFIRMAR]</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">[A CONFIRMAR] — Aguardando dados da sprint para preenchimento</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 03 DECISÕES -->
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⚠️</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Pendência</div>
+          <h5>[A CONFIRMAR] — Primeiro report</h5>
+          <p>Aguardando dados da sprint e alinhamentos iniciais para preenchimento das decisões e bloqueios do período.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 04 PRÓXIMOS PASSOS -->
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card">
+          <div class="passo-num">01</div>
+          <div class="passo-content">
+            <h5>[A CONFIRMAR]</h5>
+            <p>Aguardando dados da sprint para definição dos próximos passos.</p>
+            <div class="passo-meta">
+              <span class="passo-tag resp">Responsável: [A DEFINIR]</span>
+              <span class="passo-tag projeto">PoC Agente Conversacional</span>
+            </div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">02</div>
+          <div class="passo-content">
+            <h5>[A CONFIRMAR]</h5>
+            <p>Aguardando dados da sprint para definição dos próximos passos.</p>
+            <div class="passo-meta">
+              <span class="passo-tag resp">Responsável: [A DEFINIR]</span>
+              <span class="passo-tag projeto">PoC Agente Conversacional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nota-revisao">
+      <div style="font-size:14px;flex-shrink:0">📋</div>
+      <p><strong>Nota ao PM:</strong> este é o primeiro report do projeto Questar. Todos os campos marcados como [A CONFIRMAR] devem ser preenchidos com os dados reais da sprint antes do envio ao cliente. Campos [A DEFINIR] requerem alinhamento com o time sobre responsáveis e PO.</p>
+    </div>
+  </div>
+
+  <div class="rpt-footer">
+    <div class="logo">DIST<span>R</span>ITO</div>
+    <div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Maio 2026 · Confidencial</div>
+  </div>
+</div>
+
+</main>
+</div>
+
+<script>
+function showMonth(id) {
+  document.querySelectorAll('.report-view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.month-item').forEach(i => i.classList.remove('active'));
+
+  const view = document.getElementById('view-' + id);
+  if (view) {
+    view.classList.add('active');
+    document.getElementById('mainArea').scrollTop = 0;
+  }
+
+  const map = { mai26: 0 };
+  const items = document.querySelectorAll('.month-item');
+  if (map[id] !== undefined && items[map[id]]) {
+    items[map[id]].classList.add('active');
+  }
+}
+
+document.querySelectorAll('.hist-card-link').forEach(link => {
+  link.style.cursor = 'pointer';
+});
+</script>
+</body>
+</html>
