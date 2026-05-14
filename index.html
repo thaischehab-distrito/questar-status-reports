@@ -266,6 +266,9 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
 <!-- ═══════════════════════════════════════════
      SIDEBAR
 ═══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════
+     SIDEBAR
+═══════════════════════════════════════════ -->
 <aside class="sidebar">
   <div class="sidebar-brand">
     <div class="sidebar-logo">DIST<span>R</span>ITO</div>
@@ -279,6 +282,29 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
       <span class="month-dot dot-amarelo"></span>
       <span class="month-name">Mai 2026</span>
       <span class="month-new-badge">atual</span>
+    </div>
+
+    <div class="sidebar-section" style="padding-top:10px;">Histórico</div>
+
+    <div class="month-item" onclick="showMonth('abr26')">
+      <span class="month-dot dot-amarelo"></span>
+      <span class="month-name">Abr 2026</span>
+    </div>
+    <div class="month-item" onclick="showMonth('mar26')">
+      <span class="month-dot dot-verde"></span>
+      <span class="month-name">Mar 2026</span>
+    </div>
+    <div class="month-item" onclick="showMonth('fev26')">
+      <span class="month-dot dot-amarelo"></span>
+      <span class="month-name">Fev 2026</span>
+    </div>
+    <div class="month-item" onclick="showMonth('jan26')">
+      <span class="month-dot dot-amarelo"></span>
+      <span class="month-name">Jan 2026</span>
+    </div>
+    <div class="month-item" onclick="showMonth('dez25')">
+      <span class="month-dot dot-amarelo"></span>
+      <span class="month-name">Dez 2025</span>
     </div>
   </div>
 
@@ -299,9 +325,9 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
     <p>Selecione um mês na barra lateral</p>
   </div>
 
-<!-- ═══════════════════════════════════════════
-     MAIO 2026 — PRIMEIRO RELATÓRIO
-═══════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════
+     MAIO 2026
+════════════════════════════════════════════════ -->
 <div class="report-view active" id="view-mai26">
   <div class="rpt-header">
     <div class="rpt-header-left">
@@ -312,20 +338,16 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
       <button class="btn-export" onclick="window.print()">Exportar PDF</button>
     </div>
   </div>
-
   <div class="rpt-hero">
     <div class="rpt-hero-top">
       <div>
-        <div class="hero-tag">AI Factory — PoC Agente Conversacional</div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
         <h1>Status Report<br>Questar</h1>
         <div class="rpt-hero-sub">Período de referência: 08/05/2026 — Operação Assistida</div>
       </div>
       <div class="farol-geral">
         <span class="farol-geral-label">Farol geral</span>
-        <div class="farol-badge amarelo">
-          <div class="farol-dot"></div>
-          <span>Amarelo</span>
-        </div>
+        <div class="farol-badge amarelo"><div class="farol-dot"></div><span>Amarelo</span></div>
       </div>
     </div>
     <div class="rpt-hero-meta">
@@ -336,15 +358,13 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
       <div class="meta-item"><div class="meta-label">Produto ativo</div><div class="meta-val">TelemetrIA (PoC)</div></div>
     </div>
   </div>
-
   <div class="rpt-body">
-    <!-- 01 STATUS GERAL -->
     <div class="section">
       <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
       <div class="saude-grid">
         <div class="saude-card">
           <h4>Resumo executivo</h4>
-          <p>Projeto em Operação Assistida (deploy assistido de 30 dias). DoD técnico atingido em março/2026. Fórmulas e views validadas junto ao cliente. Principal gargalo: validação formal do Everton/Questar para encerramento do piloto. Estimativa de finalização: 2 semanas.</p>
+          <p>Projeto em Operação Assistida (deploy assistido de 30 dias). DoD técnico atingido em março/2026. Fórmulas e views validadas junto ao cliente. Principal gargalo: validação formal do Everton/Questar para encerramento oficial do piloto. Estimativa de finalização: 2 semanas.</p>
         </div>
         <div class="saude-card">
           <h4>Score de risco do mês</h4>
@@ -357,13 +377,9 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
         </div>
       </div>
     </div>
-
     <hr class="divider">
-
-    <!-- 02 ATIVIDADES -->
     <div class="section">
       <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Operação Assistida / Sprint 7+</h2></div>
-
       <div class="projeto-card">
         <div class="projeto-header">
           <div class="projeto-header-left">
@@ -374,7 +390,7 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
         </div>
         <div class="projeto-body">
           <div class="proj-col">
-            <h5>Entregas</h5>
+            <h5>Entregas concluídas</h5>
             <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Fórmulas e eventos validados junto ao Everton — divergência superada</div><div class="entrega-date">mai/2026</div></div></div>
             <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Validação das views concluída</div><div class="entrega-date">mai/2026</div></div></div>
             <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">DoD técnico atingido — 7 Sprints encerradas</div><div class="entrega-date">mar/2026</div></div></div>
@@ -392,18 +408,15 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
         </div>
       </div>
     </div>
-
     <hr class="divider">
-
-    <!-- 03 DECISÕES -->
     <div class="section">
       <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
-            <div class="decisao-card">
+      <div class="decisao-card">
         <div class="decisao-icon decisao">✅</div>
         <div class="decisao-content">
           <div class="decisao-tag decisao">Resolvido</div>
           <h5>Divergência de dados superada</h5>
-          <p>Diferença entre o portal de Israel (Power BI) e a réplica Brasil foi resolvida. Fórmulas e eventos validados junto ao Everton, cálculos confirmados com valores exatos.</p>
+          <p>Diferença entre o portal de Israel (Power BI) e a réplica Brasil foi totalmente resolvida. Fórmulas e eventos validados junto ao Everton com valores exatos.</p>
         </div>
       </div>
       <div class="decisao-card">
@@ -411,7 +424,7 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
         <div class="decisao-content">
           <div class="decisao-tag bloqueio">Bloqueio</div>
           <h5>Inação do cliente — Everton/Questar</h5>
-          <p>Atraso na devolutiva do Everton/Questar para levantamento DE x PA impede o ajuste final do prompt de recomendações (Gestor de Frotas) e o encerramento formal do contrato.</p>
+          <p>Atraso na devolutiva para levantamento DE x PA impede ajuste final do prompt de recomendações (Gestor de Frotas) e o encerramento formal do contrato.</p>
         </div>
       </div>
       <div class="decisao-card">
@@ -419,12 +432,11 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
         <div class="decisao-content">
           <div class="decisao-tag pendencia">Risco</div>
           <h5>Desmobilização do squad pendente</h5>
-          <p>Squad reduzida a 5 membros. Infra AWS estabilizada em US$1.000/mês. Desmobilização depende da assinatura do checkpoint de delivery pelo cliente.</p>
+          <p>Squad reduzida a 5 membros. Infra AWS estabilizada em US$1.000/mês. Desmobilização total depende da assinatura do checkpoint de delivery pelo cliente.</p>
         </div>
       </div>
+    </div>
     <hr class="divider">
-
-    <!-- 04 PRÓXIMOS PASSOS -->
     <div class="section">
       <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
       <div class="passo-grid">
@@ -433,10 +445,7 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
           <div class="passo-content">
             <h5>Verificar resultados finais no app</h5>
             <p>Eduardo Anaxágoras verifica resultados diretamente no aplicativo com base nas views validadas.</p>
-            <div class="passo-meta">
-              <span class="passo-tag resp">Eduardo Anaxágoras</span>
-              <span class="passo-tag projeto">TelemetrIA</span>
-            </div>
+            <div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div>
           </div>
         </div>
         <div class="passo-card">
@@ -444,10 +453,7 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
           <div class="passo-content">
             <h5>Levantamento DE x PA pelo cliente</h5>
             <p>Questar/Everton entrega levantamento para finalizar prompt de recomendações do Gestor de Frotas.</p>
-            <div class="passo-meta">
-              <span class="passo-tag resp">Everton (Questar)</span>
-              <span class="passo-tag projeto">TelemetrIA</span>
-            </div>
+            <div class="passo-meta"><span class="passo-tag resp">Everton (Questar)</span><span class="passo-tag projeto">TelemetrIA</span></div>
           </div>
         </div>
         <div class="passo-card">
@@ -455,10 +461,7 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
           <div class="passo-content">
             <h5>Encerrar bugs críticos</h5>
             <p>Resolver itens na planilha de curadoria: caso Felipe Souza e escala de gráficos.</p>
-            <div class="passo-meta">
-              <span class="passo-tag resp">Eduardo Anaxágoras</span>
-              <span class="passo-tag projeto">TelemetrIA</span>
-            </div>
+            <div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div>
           </div>
         </div>
         <div class="passo-card">
@@ -466,25 +469,715 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
           <div class="passo-content">
             <h5>Assinar checkpoint de delivery</h5>
             <p>Formalizar encerramento do piloto. Libera desmobilização total do squad para outros projetos.</p>
-            <div class="passo-meta">
-              <span class="passo-tag resp">Vinícius Hessel + Questar</span>
-              <span class="passo-tag projeto">TelemetrIA</span>
-            </div>
+            <div class="passo-meta"><span class="passo-tag resp">Vinícius Hessel + Questar</span><span class="passo-tag projeto">TelemetrIA</span></div>
           </div>
         </div>
       </div>
-      </div>
     </div>
-
     <div class="nota-revisao">
       <div style="font-size:14px;flex-shrink:0">📋</div>
-      <p><strong>Nota ao PM:</strong> relatório gerado automaticamente via Cowork em 14/05/2026 com base nos documentos do Google Drive (Status Report Questar maio/2026 + Visão Semanal Marco Zero). Estimativa de finalização do piloto: 2 semanas a partir de 08/mai/2026.</p>
+      <p><strong>Nota ao PM:</strong> relatório gerado automaticamente via Cowork em 14/05/2026 com base nos documentos do Google Drive (Status Report maio/2026 + Visão Semanal Marco Zero). Estimativa de finalização do piloto: 2 semanas a partir de 08/mai/2026.</p>
     </div>
   </div>
-
   <div class="rpt-footer">
     <div class="logo">DIST<span>R</span>ITO</div>
     <div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Maio 2026 · Confidencial</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     ABRIL 2026
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-abr26">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Abril 2026</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · Operação Assistida iniciada</div>
+    </div>
+    <div class="rpt-header-right">
+      <button class="btn-export" onclick="window.print()">Exportar PDF</button>
+    </div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 30/04/2026 — Hand Over / Encerramento</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge amarelo"><div class="farol-dot"></div><span>Amarelo</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Fase</div><div class="meta-val">Hand Over / Encerramento</div></div>
+      <div class="meta-item"><div class="meta-label">Sprint</div><div class="meta-val">Pós Sprint 7</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card">
+          <h4>Resumo executivo</h4>
+          <p>Projeto em fase de Hand Over após DoD técnico atingido em março/2026. Fórmulas e views validadas junto ao Everton. Foco na verificação dos resultados finais no app pelo Eduardo Anaxágoras. Estimativa de finalização: 2 semanas.</p>
+        </div>
+        <div class="saude-card">
+          <h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item warn"><div class="score-num">1</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item warn"><div class="score-num">2</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">1</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Hand Over</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Webapp agente conversacional · Início: Jul/2025</div>
+          </div>
+          <div class="farol-pill amarelo">Amarelo</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Fórmulas validadas — impasse de divergência totalmente superado</div><div class="entrega-date">abr/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Validação das views concluída</div><div class="entrega-date">abr/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Sprint 7 encerrada — Operação assistida iniciada em 16/mar</div><div class="entrega-date">mar/2026</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Levantamento detalhado (DE x PA) pelo cliente para finalizar ajustes do prompt de recomendações</li>
+              <li class="risco">Inação do cliente para devolutiva impede encerramento formal</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Resolvido</div>
+          <h5>Divergência de dados — validação concluída</h5>
+          <p>Fórmulas e eventos validados junto ao Everton. Cálculos confirmados com valores exatos. Impasse de divergência entre portal Israel e réplica Brasil totalmente superado.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⚠️</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Pendência cliente</div>
+          <h5>Levantamento DE x PA — prompt de recomendações</h5>
+          <p>Cliente (Questar) precisa entregar levantamento detalhado para finalizar os ajustes do prompt de recomendações. Sem isso, o encerramento formal fica bloqueado.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card">
+          <div class="passo-num">01</div>
+          <div class="passo-content">
+            <h5>Checar resultados finais no app</h5>
+            <p>Eduardo Anaxágoras verifica resultados diretamente no app após validação das views.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">02</div>
+          <div class="passo-content">
+            <h5>Receber levantamento DE x PA</h5>
+            <p>Aguardar e processar o levantamento do cliente para finalizar o prompt de recomendações.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Everton (Questar)</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer">
+    <div class="logo">DIST<span>R</span>ITO</div>
+    <div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Abril 2026 · Confidencial</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     MARÇO 2026
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-mar26">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Março 2026</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · DoD Técnico atingido</div>
+    </div>
+    <div class="rpt-header-right">
+      <button class="btn-export" onclick="window.print()">Exportar PDF</button>
+    </div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 16/03/2026 — Início da Operação Assistida</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge verde"><div class="farol-dot"></div><span>Verde</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Marco</div><div class="meta-val">DoD técnico atingido</div></div>
+      <div class="meta-item"><div class="meta-label">Sprint</div><div class="meta-val">Sprint 7 → Op. Assistida</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card">
+          <h4>Resumo executivo</h4>
+          <p>Marco crítico do projeto: o Definition of Done técnico foi atingido em março/2026. Sprint 7 encerrada e Operação Assistida iniciada em 16/mar. O produto está em produção com deploy assistido por 30 dias para estabilização e coleta de feedbacks finais.</p>
+        </div>
+        <div class="saude-card">
+          <h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">0</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Sprint 7 / Início Op. Assistida</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Webapp agente conversacional · Início: Jul/2025</div>
+          </div>
+          <div class="farol-pill verde">Verde</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">DoD técnico atingido — produto em produção</div><div class="entrega-date">mar/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Sprint 7 encerrada</div><div class="entrega-date">13/fev – 16/mar</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Operação Assistida iniciada em 16/mar (30 dias)</div><div class="entrega-date">16/mar/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">App disponível via CloudFront com arquitetura OLTP/OLAP separada</div><div class="entrega-date">mar/2026</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Período de operação assistida: coleta de feedbacks e estabilização em andamento</li>
+              <li class="pendencia">Agendamento do checkpoint formal de encerramento com o cliente</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Marco atingido</div>
+          <h5>Definition of Done técnico concluído</h5>
+          <p>Todas as 7 Sprints encerradas. O produto TelemetrIA está em produção: agente conversacional respondendo às perguntas fundamentais de motoristas e gestores com dados do Redshift via AWS Bedrock.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Arquitetura</div>
+          <h5>OLTP/OLAP separados — app estável</h5>
+          <p>Separação entre RDS (operação) e Redshift (analytics/IA) garantiu estabilidade do app. Consultas pesadas de IA não competem com transações do aplicativo.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card">
+          <div class="passo-num">01</div>
+          <div class="passo-content">
+            <h5>Operação Assistida (30 dias)</h5>
+            <p>Monitorar estabilidade, coletar feedbacks e fazer ajustes incrementais com o squad reduzido.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras + Patricia</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">02</div>
+          <div class="passo-content">
+            <h5>Agendar checkpoint de encerramento</h5>
+            <p>Alinhar com Questar a data e formato do checkpoint formal para encerramento do piloto.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Vinícius Hessel</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer">
+    <div class="logo">DIST<span>R</span>ITO</div>
+    <div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Março 2026 · Confidencial</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     FEVEREIRO 2026
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-fev26">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Fevereiro 2026</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · Sprint #5 Review + App em homologação</div>
+    </div>
+    <div class="rpt-header-right">
+      <button class="btn-export" onclick="window.print()">Exportar PDF</button>
+    </div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 13/02/2026 — Sprint #5 Review</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge amarelo"><div class="farol-dot"></div><span>Amarelo</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Sprint atual</div><div class="meta-val">Sprint 7 (iniciada)</div></div>
+      <div class="meta-item"><div class="meta-label">Fase</div><div class="meta-val">Homologação / Ajustes</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card">
+          <h4>Resumo executivo</h4>
+          <p>Sprint #5 Review realizada em 13/fev com apresentação completa do app para Motorista, Gestor e Gerenciador. Guias de utilização entregues, fluxo de bugs e correções (SLA 5 dias) estruturado. Monitoramento de qualidade de dados ativado. Sprint 7 iniciada com foco no DoD final.</p>
+        </div>
+        <div class="saude-card">
+          <h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item warn"><div class="score-num">2</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">1</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Sprint #5 Review (13/fev)</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Sprint 7 iniciada · Início: Jul/2025</div>
+          </div>
+          <div class="farol-pill amarelo">Amarelo</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">App apresentado: perfis Motorista, Gestor e Gerenciador de usuários</div><div class="entrega-date">13/fev/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Guias de utilização entregues (Fleet Manager, Driver, Access Manager)</div><div class="entrega-date">fev/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Fluxo de Bugs & Correções estruturado (SLA 5 dias úteis)</div><div class="entrega-date">fev/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Monitoramento de qualidade de dados ativado (Glue/S3/Athena)</div><div class="entrega-date">fev/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Separação OLTP/OLAP apresentada — proposta aprovada</div><div class="entrega-date">fev/2026</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Curadoria do webapp: feedback enviado em 15/jan ainda em processamento</li>
+              <li class="pendencia">Validação de inconsistências Bronze → Silver: evidências e plano de tratamento pendentes</li>
+              <li class="pendencia">Publicação do webapp em URL Questar Brasil (questarbr.com/aplicativo)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Decisão</div>
+          <h5>Separação OLTP/OLAP aprovada</h5>
+          <p>Aprovada a separação entre RDS PostgreSQL (operação) e Redshift (analytics/IA). Garante que consultas pesadas de IA não impactam a performance do app. Custo estimado: US$40-85/mês adicional.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⚠️</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Pendência</div>
+          <h5>Inconsistências Bronze → Silver</h5>
+          <p>Diferença identificada entre dados do portal de Israel (Power BI) e réplica Brasil. Exige levantamento de evidências e plano de tratamento antes do encerramento do piloto.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card">
+          <div class="passo-num">01</div>
+          <div class="passo-content">
+            <h5>Sprint 7 — DoD final</h5>
+            <p>Encerrar Sprint 7 com foco nos critérios de aceite: 12 perguntas fundamentais respondidas com precisão.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">02</div>
+          <div class="passo-content">
+            <h5>Publicar app em URL Questar Brasil</h5>
+            <p>Disponibilizar o webapp em questarbr.com/aplicativo para testes com usuários reais.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">03</div>
+          <div class="passo-content">
+            <h5>Tratar inconsistências Bronze → Silver</h5>
+            <p>Levantar evidências da divergência Israel x Brasil e definir plano de tratamento.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Patricia Miranda</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer">
+    <div class="logo">DIST<span>R</span>ITO</div>
+    <div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Fevereiro 2026 · Confidencial</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     JANEIRO 2026
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-jan26">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Janeiro 2026</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · Deploy responsivo + Sprint 6</div>
+    </div>
+    <div class="rpt-header-right">
+      <button class="btn-export" onclick="window.print()">Exportar PDF</button>
+    </div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 22/01/2026 — Sprint 6 / Finalização</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge amarelo"><div class="farol-dot"></div><span>Amarelo</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Sprint atual</div><div class="meta-val">Sprint 6 (23/jan)</div></div>
+      <div class="meta-item"><div class="meta-label">Próxima sprint</div><div class="meta-val">Sprint 7 → 13/fev</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card">
+          <h4>Resumo executivo</h4>
+          <p>Deploy na interface responsiva do webapp realizado. Testes com coleta de feedback iniciados. Primeiro vídeo demonstrativo publicado. Plano de ação dentro do prazo com foco na finalização na 1ª quinzena de fevereiro. Checkpoint estratégico realizado em 13/jan.</p>
+        </div>
+        <div class="saude-card">
+          <h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item warn"><div class="score-num">3</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">1</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Sprint 6</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Webapp responsivo em testes · Início: Jul/2025</div>
+          </div>
+          <div class="farol-pill amarelo">Amarelo</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Deploy na interface responsiva do webapp — testes com usuários iniciados</div><div class="entrega-date">jan/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Primeiro vídeo demonstrativo da solução publicado</div><div class="entrega-date">jan/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Checkpoint estratégico realizado em 13/jan</div><div class="entrega-date">13/jan/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Planilha de feedback de curadoria enviada em 15/jan</div><div class="entrega-date">15/jan/2026</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Curadoria do webapp: processamento do feedback da planilha de 15/jan</li>
+              <li class="pendencia">Validação de inconsistências entre camadas Bronze → Silver</li>
+              <li class="pendencia">Publicação do webapp em URL Questar Brasil (questarbr.com/aplicativo)</li>
+              <li class="risco">Gastos AWS: monitorar consumo — possibilidade de ultrapassar estimativa inicial (US$500)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Decisão</div>
+          <h5>Consolidação de roadmap pós-piloto</h5>
+          <p>Reunião de 21/jan mapeou oportunidades estratégicas: Time & Material para sustentação do app mobile + evolução de AI; Fixed Price para versão white label para cliente específico da QuestarBR. Novas propostas a serem entregues concomitante à finalização do piloto.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⚠️</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Risco</div>
+          <h5>Consumo AWS acima da estimativa</h5>
+          <p>Gastos Amazon com possibilidade de ultrapassar a estimativa inicial de US$500/mês. Monitoramento contínuo necessário para a esteira de replicação S3 entre Israel e Brasil.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card">
+          <div class="passo-num">01</div>
+          <div class="passo-content">
+            <h5>Finalizar na 1ª quinzena de fevereiro</h5>
+            <p>Concluir Sprint 7 com entrega das 12 perguntas fundamentais respondidas corretamente pelo agente.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">02</div>
+          <div class="passo-content">
+            <h5>Publicar webapp em URL Questar Brasil</h5>
+            <p>Disponibilizar o webapp em questarbr.com/aplicativo após finalização dos ajustes.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">03</div>
+          <div class="passo-content">
+            <h5>Entregar propostas pós-piloto</h5>
+            <p>Apresentar propostas T&M (sustentação + AI) e Fixed Price (white label) concomitante à finalização.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Vinícius Hessel</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer">
+    <div class="logo">DIST<span>R</span>ITO</div>
+    <div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Janeiro 2026 · Confidencial</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     DEZEMBRO 2025
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-dez25">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Dezembro 2025</div>
+      <div class="rpt-header-sub">AI Factory · TelemetrIA · Sprints 4 e 5 / Finalização do gerenciamento</div>
+    </div>
+    <div class="rpt-header-right">
+      <button class="btn-export" onclick="window.print()">Exportar PDF</button>
+    </div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 15/12/2025 — Sprints 4 e 5</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge amarelo"><div class="farol-dot"></div><span>Amarelo</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Vinícius Hessel</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Sprint atual</div><div class="meta-val">Sprint 5 (22/dez)</div></div>
+      <div class="meta-item"><div class="meta-label">Próxima sprint</div><div class="meta-val">Sprint 6 → 12/jan</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card">
+          <h4>Resumo executivo</h4>
+          <p>Estratégia de entrega definida: clientes começam testes em janeiro para coleta de feedback. Front-end focado em aprimorar a interface com conceitos de UX. Plano de ação focado na curadoria e finalização do gerenciamento do app (perfis usuário/gerente) até o final de janeiro, visando entrega de valor do piloto.</p>
+        </div>
+        <div class="saude-card">
+          <h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item warn"><div class="score-num">3</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">1</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">1</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Sprints 4 e 5</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Interface UX em andamento · Início: Jul/2025</div>
+          </div>
+          <div class="farol-pill amarelo">Amarelo</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Sprint 4 encerrada (03/dez) — Sprint 5 encerrada (22/dez)</div><div class="entrega-date">dez/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Estratégia de entrega definida — testes com clientes a partir de janeiro</div><div class="entrega-date">dez/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Interface UX aprimorada — front-end focado em experiência do app</div><div class="entrega-date">dez/2025</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Interface com BI (Walisson/Fluxbi) iniciada para evolução pós-piloto</div><div class="entrega-date">dez/2025</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências e riscos</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Plano de ação para finalização da PoC em jan ou fev/2026</li>
+              <li class="pendencia">Roadmap com novos pedidos adicionados ao escopo (matriz impacto x esforço)</li>
+              <li class="pendencia">Validação de documentos no DW e estrutura de dados para insumos de IA generativa</li>
+              <li class="risco">Gastos Amazon: possibilidade de ultrapassar estimativa inicial (US$500/mês)</li>
+              <li class="risco">Esteira de replicação S3 Israel → Brasil: monitorar status e métricas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Decisão</div>
+          <h5>Estratégia de entrega definida</h5>
+          <p>Clientes devem começar os testes em janeiro para coleta de feedback. Foco em finalizar a curadoria e gerenciamento do app (perfis usuário/gerente) até final de janeiro.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⚠️</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Risco</div>
+          <h5>Custos AWS acima da estimativa</h5>
+          <p>Gastos Amazon com possibilidade de ultrapassar US$500/mês estimado inicialmente. Acompanhar uso e consumo de dados na conta AWS da Questar e esteira S3 Israel → Brasil.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⚠️</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Evolução</div>
+          <h5>Solução BI com Fluxbi para fase pós-piloto</h5>
+          <p>Solução para alimentar BI com base em novas colunas no Data Lake/Warehouse pode ser provisionada para fase posterior ao piloto. Interface com Walisson da Fluxbi já iniciada.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card">
+          <div class="passo-num">01</div>
+          <div class="passo-content">
+            <h5>Finalizar gerenciamento do app</h5>
+            <p>Curadoria e finalização da parte de gerenciamento (perfis usuário/gerente) até final de janeiro.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Eduardo Anaxágoras</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">02</div>
+          <div class="passo-content">
+            <h5>Iniciar testes com clientes (janeiro)</h5>
+            <p>Clientes começam os testes para coleta de feedback e melhorias incrementais do piloto.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Vinícius Hessel + Questar</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">03</div>
+          <div class="passo-content">
+            <h5>Validar documentos no DW</h5>
+            <p>Validar estrutura de dados no Data Warehouse para insumos das perguntas fundamentais de IA generativa.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Patricia Miranda</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">04</div>
+          <div class="passo-content">
+            <h5>Monitorar gastos AWS</h5>
+            <p>Acompanhar consumo da conta AWS Questar, especialmente esteira S3 Israel → Brasil e queries Bedrock.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Patricia Miranda</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rpt-footer">
+    <div class="logo">DIST<span>R</span>ITO</div>
+    <div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Dezembro 2025 · Confidencial</div>
   </div>
 </div>
 
@@ -502,16 +1195,12 @@ function showMonth(id) {
     document.getElementById('mainArea').scrollTop = 0;
   }
 
-  const map = { mai26: 0 };
+  const map = { mai26: 0, abr26: 2, mar26: 3, fev26: 4, jan26: 5, dez25: 6 };
   const items = document.querySelectorAll('.month-item');
   if (map[id] !== undefined && items[map[id]]) {
     items[map[id]].classList.add('active');
   }
 }
-
-document.querySelectorAll('.hist-card-link').forEach(link => {
-  link.style.cursor = 'pointer';
-});
 </script>
 </body>
 </html>
