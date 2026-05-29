@@ -457,7 +457,7 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
           <h4>Score de risco do mês</h4>
           <div class="score-wrap">
             <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
-            <div class="score-item warn"><div class="score-num">3</div><div class="score-label">Pendências</div></div>
+            <div class="score-item warn"><div class="score-num">5</div><div class="score-label">Pendências</div></div>
             <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Faróis verdes</div></div>
             <div class="score-item info"><div class="score-num">1</div><div class="score-label">Farol amarelo</div></div>
           </div>
@@ -489,6 +489,8 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
             <h5>Pendências de encerramento formal</h5>
             <ul class="alerta-list">
               <li class="pendencia">Devolutiva de feedback do time Questar sobre testes (Motorista e Gestor de Frotas)</li>
+              <li class="pendencia">Implementação de reset de sessão — resolver persistência de dados entre sessões (usuário forçado a Ctrl+F5)</li>
+              <li class="pendencia">Ajustes finos no prompter — mensagens de erro sendo refinadas, em andamento</li>
               <li class="pendencia">Assinatura do checkpoint formal de encerramento pelo cliente</li>
               <li class="pendencia">Entrega da documentação técnica completa e desmobilização da squad</li>
             </ul>
@@ -517,6 +519,14 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
           <div class="decisao-tag decisao">Resolvido</div>
           <h5>Testes liberados para o cliente — Motorista e Gestor de Frotas</h5>
           <p>Versão Motorista liberada em 13/05 e versão Gestor de Frotas/Admin em 19/05. Itens de prompt e cálculo validados antes da liberação.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⏳</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Em andamento</div>
+          <h5>Reset de sessão — problema de persistência de dados</h5>
+          <p>Sistema retinha respostas de sessões anteriores, exigindo Ctrl+F5 do usuário. Implementação de temporizador de reset de sessão em desenvolvimento para eliminar essa fricção, especialmente em mobile.</p>
         </div>
       </div>
       <div class="decisao-card">
@@ -567,6 +577,14 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
         <div class="passo-card">
           <div class="passo-num">04</div>
           <div class="passo-content">
+            <h5>Agendar reunião de finalização com cliente</h5>
+            <p>Reunião com Everton e convidar Fernando Schaffer (CEO QuestarBR) para o checkpoint de encerramento formal do projeto.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Pedrão Oliveira</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">05</div>
+          <div class="passo-content">
             <h5>Desmobilização da squad</h5>
             <p>Após aceite formal, desmobilizar os 5 membros da squad e encerrar recursos AWS não essenciais.</p>
             <div class="passo-meta"><span class="passo-tag resp">Pedro Martins + Vinícius Hessel</span><span class="passo-tag projeto">TelemetrIA</span></div>
@@ -576,7 +594,7 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
     </div>
     <div class="nota-revisao">
       <div style="font-size:14px;flex-shrink:0">📋</div>
-      <p><strong>Nota ao PM:</strong> relatório atualizado automaticamente via Cowork em 29/05/2026 com base no Resumo Estratégico de Encerramento (26/05) e Status Report Maio/2026 (22/05) do Google Drive. Piloto em encerramento formal — DoD 100%, testes liberados ao cliente, aguardando devolutiva e assinatura do checkpoint.</p>
+      <p><strong>Nota ao PM:</strong> relatório atualizado automaticamente via Cowork em 29/05/2026 com base no Resumo Estratégico de Encerramento (26/05), Status Report Maio/2026 (22/05) e Weekly Report 26/05/2026. Adicionados: reset de sessão (pendente), ajustes de prompter em andamento e reunião de finalização com Everton + Schaffer.</p>
     </div>
   </div>
   <div class="rpt-footer">
@@ -1873,7 +1891,7 @@ const MONTHS_DATA = [
   { id:'fev26',  label:'Fev 2026', farol:'amarelo', bloqueios:0, pendencias:2, verdes:1, amarelos:1 },
   { id:'mar26',  label:'Mar 2026', farol:'verde',   bloqueios:0, pendencias:1, verdes:1, amarelos:0 },
   { id:'abr26',  label:'Abr 2026', farol:'amarelo', bloqueios:1, pendencias:2, verdes:1, amarelos:1 },
-  { id:'mai26',  label:'Mai 2026', farol:'amarelo', bloqueios:0, pendencias:3, verdes:0, amarelos:1, atual:true },
+  { id:'mai26',  label:'Mai 2026', farol:'amarelo', bloqueios:0, pendencias:5, verdes:0, amarelos:1, atual:true },
 ];
 
 function trend(curr, prev) {
