@@ -338,14 +338,18 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
   <div class="sidebar-section">Relatórios mensais</div>
 
   <div class="month-list">
-    <div class="month-item active" onclick="showMonth('mai26')">
+    <div class="month-item active" onclick="showMonth('jun26')">
       <span class="month-dot dot-amarelo"></span>
-      <span class="month-name">Mai 2026</span>
+      <span class="month-name">Jun 2026</span>
       <span class="month-new-badge">atual</span>
     </div>
 
     <div class="sidebar-section" style="padding-top:10px;">Histórico</div>
 
+    <div class="month-item" onclick="showMonth('mai26')">
+      <span class="month-dot dot-amarelo"></span>
+      <span class="month-name">Mai 2026</span>
+    </div>
     <div class="month-item" onclick="showMonth('abr26')">
       <span class="month-dot dot-amarelo"></span>
       <span class="month-name">Abr 2026</span>
@@ -415,7 +419,155 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
 <!-- ════════════════════════════════════════════════
      MAIO 2026
 ════════════════════════════════════════════════ -->
-<div class="report-view active" id="view-mai26">
+<div class="report-view active" id="view-jun26">
+  <div class="rpt-header">
+    <div class="rpt-header-left">
+      <div class="rpt-header-title">Status Report — Questar — Junho 2026</div>
+      <div class="rpt-header-sub">AI Factory · PoC Agente Conversacional · Encerramento do Piloto</div>
+    </div>
+    <div class="rpt-header-right">
+      <button class="btn-export" onclick="window.print()">Exportar PDF</button>
+    </div>
+  </div>
+  <div class="rpt-hero">
+    <div class="rpt-hero-top">
+      <div>
+        <div class="hero-tag">AI Factory — TelemetrIA</div>
+        <h1>Status Report<br>Questar</h1>
+        <div class="rpt-hero-sub">Período de referência: 11/06/2026 — Encerramento do Piloto</div>
+      </div>
+      <div class="farol-geral">
+        <span class="farol-geral-label">Farol geral</span>
+        <div class="farol-badge amarelo"><div class="farol-dot"></div><span>Amarelo</span></div>
+      </div>
+    </div>
+    <div class="rpt-hero-meta">
+      <div class="meta-item"><div class="meta-label">Head Delivery</div><div class="meta-val">Pedrão Oliveira</div></div>
+      <div class="meta-item"><div class="meta-label">Product Owner</div><div class="meta-val">Thaís Chehab</div></div>
+      <div class="meta-item"><div class="meta-label">Início do projeto</div><div class="meta-val">Julho 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Fase atual</div><div class="meta-val">Encerramento</div></div>
+      <div class="meta-item"><div class="meta-label">Produto ativo</div><div class="meta-val">TelemetrIA (PoC)</div></div>
+    </div>
+  </div>
+  <div class="rpt-body">
+    <div class="section">
+      <div class="section-title"><div class="section-num">01</div><h2>Status geral</h2></div>
+      <div class="saude-grid">
+        <div class="saude-card">
+          <h4>Resumo executivo</h4>
+          <p>Piloto em fase final de encerramento. Todos os ajustes técnicos foram concluídos — sistema de prompts corrigido, código do frontend organizado no repositório e funcionalidade validada pela equipe. A equipe está finalizando alinhamentos internos para agendar a reunião de encerramento com o cliente, com apresentação da entrega final em formato de demonstração do produto.</p>
+        </div>
+        <div class="saude-card">
+          <h4>Score de risco do mês</h4>
+          <div class="score-wrap">
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Bloqueios</div></div>
+            <div class="score-item warn"><div class="score-num">4</div><div class="score-label">Pendências</div></div>
+            <div class="score-item ok"><div class="score-num">0</div><div class="score-label">Faróis verdes</div></div>
+            <div class="score-item info"><div class="score-num">1</div><div class="score-label">Farol amarelo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">02</div><h2>Resumo de atividades — Encerramento do Piloto</h2></div>
+      <div class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-header-left">
+            <div class="projeto-nome">PoC Agente Conversacional</div>
+            <div class="projeto-info">TelemetrIA · Webapp agente conversacional · Jul/2025 — Jun/2026</div>
+          </div>
+          <div class="farol-pill amarelo">Amarelo · Encerrando</div>
+        </div>
+        <div class="projeto-body">
+          <div class="proj-col">
+            <h5>Entregas concluídas (jun/2026)</h5>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">System prompt ajustado — LLM responde com mensagem genérica para perguntas fora do escopo das 12 questões acordadas</div><div class="entrega-date">jun/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Código do frontend migrado da instância EC2 para o repositório DevOps — versionamento e deploy configurados</div><div class="entrega-date">jun/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">Funcionalidade do sistema validada pela equipe interna — dados íntegros, sem necessidade de novas validações</div><div class="entrega-date">jun/2026</div></div></div>
+            <div class="entrega-item"><div class="entrega-dot"></div><div><div class="entrega-text">App disponível para demonstração: <a href="https://appia.questarbr.com/conversations" target="_blank" style="color:var(--brand)">appia.questarbr.com/conversations</a></div><div class="entrega-date">jun/2026</div></div></div>
+          </div>
+          <div class="proj-col">
+            <h5>Pendências de encerramento formal</h5>
+            <ul class="alerta-list">
+              <li class="pendencia">Agendar reunião de encerramento e demonstração do produto com o time da Questar</li>
+              <li class="pendencia">Consolidar documentação de arquitetura (dados + IA) em pasta única</li>
+              <li class="pendencia">Gravar vídeo demonstrativo das funcionalidades validadas</li>
+              <li class="pendencia">Assinatura do checkpoint formal de encerramento e envio do pacote final ao cliente</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">03</div><h2>Decisões e bloqueios</h2></div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Resolvido</div>
+          <h5>Ajustes técnicos finais concluídos</h5>
+          <p>System prompt corrigido para lidar com perguntas fora do escopo, código do frontend organizado no repositório DevOps e integridade dos dados confirmada pela equipe de engenharia — sem pendências técnicas abertas.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon decisao">✅</div>
+        <div class="decisao-content">
+          <div class="decisao-tag decisao">Resolvido</div>
+          <h5>Validação de dados encerrada</h5>
+          <p>Dados comparados contra o BI do cliente e planilhas de referência. Equipe de engenharia de dados confirmou a consistência — não há necessidade de novas rodadas de validação.</p>
+        </div>
+      </div>
+      <div class="decisao-card">
+        <div class="decisao-icon pendencia">⏳</div>
+        <div class="decisao-content">
+          <div class="decisao-tag pendencia">Em andamento</div>
+          <h5>Alinhamentos internos para agendamento do encerramento</h5>
+          <p>Equipe Distrito finalizando alinhamentos internos para agendar a reunião de encerramento com o time da Questar. A entrega será apresentada em formato de demonstração do produto via <a href="https://appia.questarbr.com/conversations" target="_blank" style="color:var(--brand)">appia.questarbr.com/conversations</a>.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-title"><div class="section-num">04</div><h2>Próximos passos</h2></div>
+      <div class="passo-grid">
+        <div class="passo-card">
+          <div class="passo-num">01</div>
+          <div class="passo-content">
+            <h5>Agendar demonstração com o time da Questar</h5>
+            <p>Reunião de encerramento com apresentação do produto em formato demo via appia.questarbr.com/conversations.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Head Delivery</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">02</div>
+          <div class="passo-content">
+            <h5>Consolidar documentação e gravar vídeo demo</h5>
+            <p>Reunir arquitetura de dados, documentação de IA e guias em pasta única. Gravar vídeo demonstrativo das funcionalidades para envio ao cliente.</p>
+            <div class="passo-meta"><span class="passo-tag resp">PO + Engenharia</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+        <div class="passo-card">
+          <div class="passo-num">03</div>
+          <div class="passo-content">
+            <h5>Checkpoint formal de encerramento</h5>
+            <p>Assinatura do aceite pelo cliente e entrega do pacote final com documentação técnica completa.</p>
+            <div class="passo-meta"><span class="passo-tag resp">Head Delivery + Questar</span><span class="passo-tag projeto">TelemetrIA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="rpt-footer">
+    <div class="logo">DIST<span>R</span>ITO</div>
+    <div class="rpt-footer-right">AI Factory · Questar<br>Status Report — Junho 2026 · Encerramento · Confidencial</div>
+  </div>
+</div>
+<!-- ════════════════════════════════════════════════
+     MAIO 2026
+════════════════════════════════════════════════ -->
+<div class="report-view" id="view-mai26">
   <div class="rpt-header">
     <div class="rpt-header-left">
       <div class="rpt-header-title">Status Report — Questar — Maio 2026</div>
@@ -1823,7 +1975,7 @@ html, body { height: 100%; font-family: 'Red Hat Display', system-ui, sans-serif
     <!-- Comparativo meses recentes -->
     <div class="hist-insight">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a3a8f" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p id="hist-insight-text">Comparativo <strong>Abril vs Maio 2026</strong>: bloqueios mantiveram-se em 1, pendências aumentaram de 2 para 3 — foco no encerramento formal do piloto. O projeto completou 11 meses com DoD técnico atingido em março/2026.</p>
+      <p id="hist-insight-text">Comparativo <strong>Maio vs Junho 2026</strong>: bloqueios mantiveram-se em 0, pendências reduziram de 5 para 4 — todos os ajustes técnicos foram concluídos e a equipe aguarda agendamento da demonstração final com o cliente. O projeto completou 12 meses com DoD técnico 100% atingido.</p>
     </div>
 
     <!-- Comparativo últimos 2 meses -->
@@ -1875,7 +2027,7 @@ function showMonth(id) {
     document.getElementById('mainArea').scrollTop = 0;
   }
 
-  const map = { mai26: 0, abr26: 1, mar26: 2, fev26: 3, jan26: 4, dez25: 5, nov25: 6, out25: 7, set25: 8, ago25: 9, jul25: 10 };
+  const map = { jun26: 0, mai26: 1, abr26: 2, mar26: 3, fev26: 4, jan26: 5, dez25: 6, nov25: 7, out25: 8, set25: 9, ago25: 10, jul25: 11 };
 
 const MONTHS_DATA = [
   { id:'jul25',  label:'Jul 2025', farol:'verde',   bloqueios:0, pendencias:0, verdes:1, amarelos:0 },
@@ -1888,7 +2040,8 @@ const MONTHS_DATA = [
   { id:'fev26',  label:'Fev 2026', farol:'amarelo', bloqueios:0, pendencias:2, verdes:1, amarelos:1 },
   { id:'mar26',  label:'Mar 2026', farol:'verde',   bloqueios:0, pendencias:1, verdes:1, amarelos:0 },
   { id:'abr26',  label:'Abr 2026', farol:'amarelo', bloqueios:1, pendencias:2, verdes:1, amarelos:1 },
-  { id:'mai26',  label:'Mai 2026', farol:'amarelo', bloqueios:0, pendencias:5, verdes:0, amarelos:1, atual:true },
+  { id:'mai26',  label:'Mai 2026', farol:'amarelo', bloqueios:0, pendencias:5, verdes:0, amarelos:1 },
+  { id:'jun26',  label:'Jun 2026', farol:'amarelo', bloqueios:0, pendencias:4, verdes:0, amarelos:1, atual:true },
 ];
 
 function trend(curr, prev) {
